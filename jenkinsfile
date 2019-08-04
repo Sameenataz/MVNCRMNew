@@ -1,0 +1,23 @@
+pipeline {
+	agent any
+	stages {
+		stage ('Compile stage') {
+			withMaven(maven : 'MavenCRMproject') {
+				sh 'mvn clean compile'
+				}
+			}
+		}
+		stage ('Testing stage') {
+			withMaven(maven : 'MavenCRMproject') {
+				sh 'mvn test'
+				}
+			}
+		}
+		stage ('Deployment stage') {
+			withMaven(maven : 'MavenCRMproject') {
+				sh 'mvn deploy'
+				}
+			}
+		}
+		
+		
