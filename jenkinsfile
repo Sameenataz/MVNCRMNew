@@ -2,19 +2,19 @@ pipeline {
 	agent any
 	stages {
 		stage ('Compile stage') {
-			withMaven(maven : 'MavenCRMproject') {
+			withMaven(maven : 'MVNCRMNew') {
 				sh 'mvn clean compile'
 				}
 			}
 		}
 		stage ('Testing stage') {
-			withMaven(maven : 'MavenCRMproject') {
+			withMaven(maven : 'MVNCRMNew') {
 				sh 'mvn test'
 				}
 			}
 		}
 		stage ('Deployment stage') {
-			withMaven(maven : 'MavenCRMproject') {
+			withMaven(maven : 'MVNCRMNew') {
 				sh 'mvn deploy'
 				}
 			}
